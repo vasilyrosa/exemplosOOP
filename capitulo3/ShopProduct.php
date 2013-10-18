@@ -1,6 +1,14 @@
 <?php
+<<<<<<< HEAD
+/*
+*@everton rosa
+*18/01/2013
+*/
+//capitulo 3 conceitos básicos de Orientação a objetos  
+=======
 
 //capitulo 3 conceitos básicos de objetos rsrs
+>>>>>>> confirma
  class ShopProduct
  {
  	/* atributos */ 
