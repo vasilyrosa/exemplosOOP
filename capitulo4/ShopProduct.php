@@ -35,11 +35,11 @@
    }
 
   /* método estático */
-   public  function getInstance( $id, PDO $pdo )
+   public  static function getInstance( $id, PDO $pdo )
    {
-      $query = "select * from products where id = '$id'";
-      $stmt  = $pdo->query( $query );
-      $row   = $stmt->fetch();
+      $query = "select * from products where id = $id";
+      $stmt  = $pdo->prepare( $query );
+      $row   = $stmt->fetch(PDO::FETCH_OBJ);
       if( empty($row) ) { return null; }
 
       if($row['type'] == 'book') {
@@ -58,7 +58,7 @@
             $row['playlength'] );
             
       } else {
-         $product = new ShopProduct(
+          $product = new ShopProduct(
             $row['title'],
             $row['firstname'],
             $row['lastname'],

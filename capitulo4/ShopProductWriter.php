@@ -1,24 +1,13 @@
 <?php
-class ShopProductWriter
+abstract class ShopProductWriter
 {
-	private $products = array();
+	protected $products = array();
 
 	/* métodos */
-	public function addProduct(ShopProduct $shopProduct)
-	{
-		$this->products[] = $shopProduct; 
-	}
+
+	abstract public function Write();
 	
-	public function Write()
-	{
-		$str = '';
-		foreach( $this->products as $shopProduct ){
-			$str .= "{$shopProduct->getTitle()}: ";
-			$str .= " {$shopProduct->getProducer()}";
-			$str .= " ( R$ {$shopProduct->getPrice()} ) <br />";
-		}
-		echo $str;
-	}
+	
 }
 
 ?>
