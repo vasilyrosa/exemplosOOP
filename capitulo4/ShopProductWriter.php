@@ -5,7 +5,7 @@ abstract class ShopProductWriter
 
 	/* métodos */
 
-	abstract public function Write();
+	abstract public function write();
 	
 	
 }

@@ -8,7 +8,7 @@ class xmlProductWrite extends ShopProductWriter
 		$str = '<?xml version="1.0" enconding="UTF-8?>'."<br />";
 		$str .= '<products><br />';
 
-		foreach ($this->products as  $ShopProducts) {
+		foreach ($this->products as  $shopProduct) {
 			$str .= "\t<product  title=\"{$shopProduct->getTitle()}\"><br />";
 			$str .= "\t<sumary><br />";
 			$str .= "\t{$shopProduct->getSumaryLine()}<br />";
