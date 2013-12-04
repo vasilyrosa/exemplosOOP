@@ -2,26 +2,34 @@
 /* Teste interceptador __get */
 
 class Person {
-	function __get( $propriety ) {
-		$method = "get{$propriety}";
+
+	private $name;
+	private $age;
+	
+	function __set( $propriety, $value ) {
+		$method = "set{$propriety}";
 		if( method_exists( $this, $method ) ) {
-			return $this->$method();
+			return $this->$method( $value );
 		}
 	}
 
-	function getName() {
+	function setName( $name ) {
+		$this->name = $name;
+		if ( ! is_null ( $name ) ) {
+			$this->name = strtoupper($this->name);
+		}
 		return 'Bob';
 	}
 
-	function getAge() {
-		return 44;
+	function setAge( $age ) {
+		$this->age = strtoupper($this->age);
 	}
 }
 
 
 
 $p = new Person();
-    print $p->name;
+    print $p->name = 'Elias';
 
 
 ?>
